@@ -629,7 +629,7 @@ var db = null;
 var useCloud = false;
 
 try {
-  if (SUPA_URL !== 'https://mdkymoudyviwroyiagwp.supabase.co' && typeof supabase !== 'undefined') {
+  if (SUPA_URL !== 'YOUR_SUPABASE_URL' && typeof supabase !== 'undefined') {
     db = supabase.createClient(SUPA_URL, SUPA_KEY);
     useCloud = true;
   }
