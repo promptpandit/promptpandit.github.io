@@ -971,7 +971,46 @@ function saveSettings() {
   setTimeout(function() { ok.style.display = 'none'; }, 3000);
   document.getElementById('sPw').value = '';
 }
+<script>
 
+// ============================================
+// SUPABASE SETUP
+// ============================================
+
+var SUPA_URL = 'https://mdkymoudyviwroyiagwp.supabase.co';
+var SUPA_KEY = 'PASTE_YOUR_ANON_KEY_HERE';
+
+var db = null;
+var useCloud = false;
+
+try {
+
+  if (typeof supabase !== 'undefined') {
+
+    db = supabase.createClient(SUPA_URL, SUPA_KEY);
+    useCloud = true;
+
+  }
+
+} catch(e) {
+
+  useCloud = false;
+
+}
+
+
+// ============================================
+// DATA
+// ============================================
+
+var articles = JSON.parse(localStorage.getItem('pp4_art') || '[]');
+var subs = JSON.parse(localStorage.getItem('pp4_subs') || '[]');
+var cfg = JSON.parse(localStorage.getItem('pp4_cfg') || '{"name":"PromptPandit","tagline":"Master AI Like a Pro","pw":"PP@2026#Admin"}');
+
+var loggedIn = false;
+var blogFilter = 'all';
+
+</script>
 // ============================================
 // OVERLAY HELPERS
 // ============================================
